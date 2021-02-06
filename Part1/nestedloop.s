@@ -4,17 +4,10 @@
 	x: .word 0
 
 .global main
-addr_i: .word i
-addr_j: .word j
-addr_x: .word x
-
 main:
-	ldr r0, addr_i
-	ldr r0, [r0]			// i = 1
-	ldr r1, addr_j
-	ldr r1, [r1]			// j = 0
-	ldr r2, addr_x
-	ldr r2, [r2]			// x = 0
+	ldr r0, i			// i = 1
+	ldr r1, j			// j = 0
+	ldr r2, x			// x = 0
 
 	cmp r0, #10
 	bge exit			// i >= 10
