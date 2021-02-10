@@ -4,15 +4,17 @@
 	i: .word 1
 	sum: .word 0
 
+.text
+
 .global main
-addr_a: .word a
-addr_b: .word b
 
 main:
-	ldr r0, addr_a		// int* a
-	ldr r1, addr_b		// int* b
-	ldr r2, i			// int i = 1
-	ldr r3, sum			// int sum = 0
+	ldr r0, =a		// int* a
+	ldr r1, =b		// int* b
+	ldr r2, =i			// int i = 1
+	ldr r2, [r2]
+	ldr r3, =sum			// int sum = 0
+	ldr r3, [r3]
 
 	cmp r2, #10
 	bge exit			// i >= 10

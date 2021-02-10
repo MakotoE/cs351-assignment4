@@ -3,11 +3,16 @@
 	j: .word 0
 	x: .word 0
 
+.text
+
 .global main
 main:
-	ldr r0, i			// i = 1
-	ldr r1, j			// j = 0
-	ldr r2, x			// x = 0
+	ldr r0, =i			// i = 1
+	ldr r0, [r0]
+	ldr r1, =j			// j = 0
+	ldr r1, [r1]
+	ldr r2, =x			// x = 0
+	ldr r2, [r2]
 
 	cmp r0, #10
 	bge exit			// i >= 10
